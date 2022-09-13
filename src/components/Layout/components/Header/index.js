@@ -7,7 +7,6 @@ import {
     faCircleXmark,
     faEarthAsia,
     faEllipsisVertical,
-    faFileCircleQuestion,
     faKeyboard,
     faMagnifyingGlass,
     faSpinner,
@@ -25,11 +24,11 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
         title: 'English',
-        to: '/feedback',
     },
     {
-        icon: <FontAwesomeIcon icon={faFileCircleQuestion} />,
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
         title: 'Feedback and help',
+        to: '/feedback',
     },
     {
         icon: <FontAwesomeIcon icon={faKeyboard} />,
