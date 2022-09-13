@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import style from './Header.module.scss';
 import images from '~/assets/images';
-import { faCircleXmark, faMagnifyingGlass, faSignIn, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
