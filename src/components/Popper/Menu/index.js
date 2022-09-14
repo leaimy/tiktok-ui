@@ -8,7 +8,9 @@ import { useState } from 'react';
 
 const cx = classNames.bind(style);
 
-function Menu({ children, items = [] }) {
+const defaultFn = () => {};
+
+function Menu({ children, items = [], onChange = defaultFn }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -23,6 +25,8 @@ function Menu({ children, items = [] }) {
                     onClick={() => {
                         if (isParent) {
                             setHistory((prev) => [...prev, item.children]);
+                        } else {
+                            onChange(item);
                         }
                     }}
                 />
