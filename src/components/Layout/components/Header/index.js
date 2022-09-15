@@ -13,6 +13,8 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { useEffect, useState } from 'react';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import Image from '~/components/Image';
+
 import {
     CoinsIcon,
     InboxIcon,
@@ -156,9 +158,9 @@ function Header() {
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
-                                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/b8454f8b4661d44e496524559a24ea31~c5_100x100.jpeg?x-expires=1662861600&x-signature=gRPp8GqbrhUWalAjBcthbirtWfc%3D"
+                                src="https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png"
                                 alt="Nguyen Van A"
                             />
                         ) : (
