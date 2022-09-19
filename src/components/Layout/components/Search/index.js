@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
 import HeadlessTippy from '@tippyjs/react/headless';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
@@ -31,11 +32,15 @@ function Search() {
 
         setLoading(true);
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
-            .then((res) => res.json())
+        axios
+            .get('https://tiktok.fullstack.edu.vn/api/users/search', {
+                params: {
+                    q: debounced,
+                    type: 'less',
+                },
+            })
             .then((res) => {
-                setSearchResult(res.data);
-                // console.log(res.data[0].id);
+                setSearchResult(res.data.data);
                 setLoading(false);
             })
             .catch(() => {
