@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import axios from 'axios';
 import HeadlessTippy from '@tippyjs/react/headless';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import { useDebounce } from '~/hooks';
+import * as searchServices from '~/apiServices/searchServices';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { SearchIcon } from '~/components/Icons';
@@ -30,22 +30,17 @@ function Search() {
             return;
         }
 
-        setLoading(true);
+        const fetchApi = async () => {
+            setLoading(true);
 
-        axios
-            .get('https://tiktok.fullstack.edu.vn/api/users/search', {
-                params: {
-                    q: debounced,
-                    type: 'less',
-                },
-            })
-            .then((res) => {
-                setSearchResult(res.data.data);
-                setLoading(false);
-            })
-            .catch(() => {
-                setLoading(false);
-            });
+            const result = await searchServices.search(debounced);
+
+            setSearchResult(result);
+
+            setLoading(false);
+        };
+
+        fetchApi();
     }, [debounced]);
 
     const handleClear = () => {
