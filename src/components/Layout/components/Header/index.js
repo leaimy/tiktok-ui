@@ -12,6 +12,7 @@ import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Image';
 
 import Search from '~/components/Layout/components/Search';
+import routesConfig from '~/config/routes';
 
 import {
     CoinsIcon,
@@ -25,6 +26,7 @@ import {
     GearIcon,
     SignOutIcon,
 } from '~/components/Icons';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(style);
 const MENU_ITEMS = [
@@ -92,7 +94,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="Tiktok" />
+                <Link to={routesConfig.home} className={cx('logo-link')}>
+                    <img src={images.logo} alt="Tiktok" />
+                </Link>
                 <Search />
                 <div className={cx('actions')}>
                     {currentUser ? (
