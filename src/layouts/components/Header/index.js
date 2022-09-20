@@ -11,7 +11,7 @@ import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Image';
 
-import Search from '~/components/Layout/components/Search';
+import Search from '~/layouts/components/Search';
 import routesConfig from '~/config/routes';
 
 import {
